@@ -1,0 +1,39 @@
+
+on post-fs-data
+
+    chmod 0660 /dev/sensorlist
+    chown system system /dev/sensorlist
+
+    #add for sensor hal to access input node
+    chown system input /dev/input/event0
+    chown system input /dev/input/event1
+    chown system input /dev/input/event2
+    chown system input /dev/input/event3
+    chown system input /dev/input/event4
+    chown system input /dev/input/event5
+    chown system input /dev/input/event6
+    chown system input /dev/input/event7
+    chown system input /dev/input/event8
+    chown system input /dev/input/event9
+    chown system input /sys/class/input/input0/flush
+    chown system input /sys/class/input/input1/flush
+    chown system input /sys/class/input/input2/flush
+    chown system input /sys/class/input/input3/flush
+    chown system input /sys/class/input/input4/flush
+    chown system input /sys/class/input/input5/flush
+    chown system input /sys/class/input/input6/flush
+    chown system input /sys/class/input/input7/flush
+    chown system input /sys/class/input/input8/flush
+    chown system input /sys/class/input/input9/flush
+
+    #add for sar sensor 
+    chown system system /sys/bus/i2c/drivers/sx932x/3-0028/status
+    chown system system /sys/bus/i2c/drivers/sx932x/3-0028/diff
+
+# sar sensor monitoring sim card sort
+on property:gsm.sim.operator.numeric=46001
+    write /sys/bus/i2c/drivers/sx932x/3-0028/card_type 0
+on property:gsm.sim.operator.numeric=22288
+    write /sys/bus/i2c/drivers/sx932x/3-0028/card_type 0
+on property:gsm.sim.operator.numeric=00101
+    write /sys/bus/i2c/drivers/sx932x/3-0028/card_type 1

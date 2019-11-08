@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config>
+	<scenario name = "init" />
+	<scenario name = "deinit" />
+	<scenario name="speaker_on_normal">
+		<ctl name="mono Profile" val="Music" />
+	</scenario>
+	<scenario name="speaker_on_ringtone">
+		<ctl name="mono Profile" val="Music" />
+	</scenario>
+	<scenario name="speaker_on_phonecall">
+		<ctl name="mono Profile" val="Speech" />
+	</scenario>
+	<scenario name="speaker_on_voip">
+		<ctl name="mono Profile" val="Speech" />
+	</scenario>
+	<scenario name="receiver_on_phonecall" />
+	<scenario name="receiver_on_voip" />
+	<scenario name="amp_off">
+		<ctl name="mono Profile" val="Music" />
+	</scenario>
+</config>
